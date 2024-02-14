@@ -8,7 +8,7 @@ import os
 import sys
 
 import connectors.connector
-from connectors import mysql_connector, duckdb_connector, postgres_connector, presto_connector, spark_connector
+from connectors import mysql_connector, duckdb_connector, postgres_connector, presto_connector, trino_connector, spark_connector
 from utils.arguments_parser import get_parser
 from utils.custom_logging import logger
 from autosteer.dp_exploration import explore_optimizer_configs
@@ -18,7 +18,7 @@ from inference.train import train_tcnn
 
 def approx_query_span_and_run(connector: Type[connectors.connector.DBConnector], benchmark: str, query: str):
     run_get_query_span(connector, benchmark, query)
-    connector = connector()
+    # connector = connector()
     explore_optimizer_configs(connector, f'{benchmark}/{query}')
 
 
@@ -35,6 +35,8 @@ def get_connector_type(connector: str) -> Type[connectors.connector.DBConnector]
         return spark_connector.SparkConnector
     elif connector == 'presto':
         return presto_connector.PrestoConnector
+    elif connector == 'trino':
+        return trino_connector.TrinoConnector
     elif connector == 'duckdb':
         return duckdb_connector.DuckDBConnector
     logger.fatal('Unknown connector %s', connector)

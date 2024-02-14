@@ -1,0 +1,2650 @@
+{
+  "0" : {
+    "id" : "35",
+    "name" : "Output",
+    "descriptor" : {
+      "columnNames" : "[acctbal, name, name, partkey, mfgr, address, phone, comment]"
+    },
+    "outputs" : [ {
+      "symbol" : "acctbal",
+      "type" : "double"
+    }, {
+      "symbol" : "name_1",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "name_9",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "partkey_4",
+      "type" : "bigint"
+    }, {
+      "symbol" : "mfgr",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "address",
+      "type" : "varchar(40)"
+    }, {
+      "symbol" : "phone",
+      "type" : "varchar(15)"
+    }, {
+      "symbol" : "comment_2",
+      "type" : "varchar(101)"
+    } ],
+    "details" : [ "name := name_1", "name := name_9", "partkey := partkey_4", "comment := comment_2" ],
+    "estimates" : [ {
+      "outputRowCount" : 100.0,
+      "outputSizeInBytes" : 34800.0,
+      "cpuCost" : 0.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ {
+      "id" : "1619",
+      "name" : "TopN",
+      "descriptor" : {
+        "count" : "100",
+        "orderBy" : "[acctbal DESC NULLS LAST, name_9 ASC NULLS LAST, name_1 ASC NULLS LAST, partkey_4 ASC NULLS LAST]"
+      },
+      "outputs" : [ {
+        "symbol" : "partkey_4",
+        "type" : "bigint"
+      }, {
+        "symbol" : "mfgr",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "name_1",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "address",
+        "type" : "varchar(40)"
+      }, {
+        "symbol" : "phone",
+        "type" : "varchar(15)"
+      }, {
+        "symbol" : "acctbal",
+        "type" : "double"
+      }, {
+        "symbol" : "comment_2",
+        "type" : "varchar(101)"
+      }, {
+        "symbol" : "name_9",
+        "type" : "varchar(25)"
+      } ],
+      "details" : [ ],
+      "estimates" : [ {
+        "outputRowCount" : 100.0,
+        "outputSizeInBytes" : 34800.0,
+        "cpuCost" : "NaN",
+        "memoryCost" : "NaN",
+        "networkCost" : "NaN"
+      } ],
+      "children" : [ {
+        "id" : "2335",
+        "name" : "LocalExchange",
+        "descriptor" : {
+          "partitioning" : "SINGLE",
+          "isReplicateNullsAndAny" : "",
+          "hashColumn" : "[]",
+          "arguments" : "[]"
+        },
+        "outputs" : [ {
+          "symbol" : "partkey_4",
+          "type" : "bigint"
+        }, {
+          "symbol" : "mfgr",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "name_1",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "address",
+          "type" : "varchar(40)"
+        }, {
+          "symbol" : "phone",
+          "type" : "varchar(15)"
+        }, {
+          "symbol" : "acctbal",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_2",
+          "type" : "varchar(101)"
+        }, {
+          "symbol" : "name_9",
+          "type" : "varchar(25)"
+        } ],
+        "details" : [ ],
+        "estimates" : [ {
+          "outputRowCount" : "NaN",
+          "outputSizeInBytes" : "NaN",
+          "cpuCost" : 0.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "1817",
+          "name" : "RemoteSource",
+          "descriptor" : {
+            "sourceFragmentIds" : "[1]"
+          },
+          "outputs" : [ {
+            "symbol" : "partkey_4",
+            "type" : "bigint"
+          }, {
+            "symbol" : "mfgr",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "name_1",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "address",
+            "type" : "varchar(40)"
+          }, {
+            "symbol" : "phone",
+            "type" : "varchar(15)"
+          }, {
+            "symbol" : "acctbal",
+            "type" : "double"
+          }, {
+            "symbol" : "comment_2",
+            "type" : "varchar(101)"
+          }, {
+            "symbol" : "name_9",
+            "type" : "varchar(25)"
+          } ],
+          "details" : [ ],
+          "estimates" : [ ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "1" : {
+    "id" : "1618",
+    "name" : "TopNPartial",
+    "descriptor" : {
+      "count" : "100",
+      "orderBy" : "[acctbal DESC NULLS LAST, name_9 ASC NULLS LAST, name_1 ASC NULLS LAST, partkey_4 ASC NULLS LAST]"
+    },
+    "outputs" : [ {
+      "symbol" : "partkey_4",
+      "type" : "bigint"
+    }, {
+      "symbol" : "mfgr",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "name_1",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "address",
+      "type" : "varchar(40)"
+    }, {
+      "symbol" : "phone",
+      "type" : "varchar(15)"
+    }, {
+      "symbol" : "acctbal",
+      "type" : "double"
+    }, {
+      "symbol" : "comment_2",
+      "type" : "varchar(101)"
+    }, {
+      "symbol" : "name_9",
+      "type" : "varchar(25)"
+    } ],
+    "details" : [ ],
+    "estimates" : [ ],
+    "children" : [ {
+      "id" : "153",
+      "name" : "Project",
+      "descriptor" : { },
+      "outputs" : [ {
+        "symbol" : "partkey_4",
+        "type" : "bigint"
+      }, {
+        "symbol" : "mfgr",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "name_1",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "address",
+        "type" : "varchar(40)"
+      }, {
+        "symbol" : "phone",
+        "type" : "varchar(15)"
+      }, {
+        "symbol" : "acctbal",
+        "type" : "double"
+      }, {
+        "symbol" : "comment_2",
+        "type" : "varchar(101)"
+      }, {
+        "symbol" : "name_9",
+        "type" : "varchar(25)"
+      } ],
+      "details" : [ ],
+      "estimates" : [ {
+        "outputRowCount" : "NaN",
+        "outputSizeInBytes" : "NaN",
+        "cpuCost" : "NaN",
+        "memoryCost" : 0.0,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ {
+        "id" : "872",
+        "name" : "FilterProject",
+        "descriptor" : {
+          "filterPredicate" : "(\"supplycost\" = COALESCE(\"min\", \"min_42\"))"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number",
+          "type" : "bigint"
+        }, {
+          "symbol" : "partkey_4",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name",
+          "type" : "varchar(55)"
+        }, {
+          "symbol" : "mfgr",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "brand",
+          "type" : "varchar(10)"
+        }, {
+          "symbol" : "type",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "size",
+          "type" : "integer"
+        }, {
+          "symbol" : "container",
+          "type" : "varchar(10)"
+        }, {
+          "symbol" : "retailprice",
+          "type" : "double"
+        }, {
+          "symbol" : "comment",
+          "type" : "varchar(23)"
+        }, {
+          "symbol" : "row_number_0",
+          "type" : "bigint"
+        }, {
+          "symbol" : "suppkey_5",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_1",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "address",
+          "type" : "varchar(40)"
+        }, {
+          "symbol" : "nationkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "phone",
+          "type" : "varchar(15)"
+        }, {
+          "symbol" : "acctbal",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_2",
+          "type" : "varchar(101)"
+        }, {
+          "symbol" : "row_number_3",
+          "type" : "bigint"
+        }, {
+          "symbol" : "availqty",
+          "type" : "integer"
+        }, {
+          "symbol" : "supplycost",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_6",
+          "type" : "varchar(199)"
+        }, {
+          "symbol" : "row_number_7",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_9",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "regionkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "comment_10",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "row_number_11",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_13",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "comment_14",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "unique",
+          "type" : "bigint"
+        }, {
+          "symbol" : "min",
+          "type" : "double"
+        } ],
+        "details" : [ "min := COALESCE(\"min\", \"min_42\")" ],
+        "estimates" : [ {
+          "outputRowCount" : "NaN",
+          "outputSizeInBytes" : "NaN",
+          "cpuCost" : "NaN",
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        }, {
+          "outputRowCount" : "NaN",
+          "outputSizeInBytes" : "NaN",
+          "cpuCost" : "NaN",
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "871",
+          "name" : "CrossJoin",
+          "descriptor" : { },
+          "outputs" : [ {
+            "symbol" : "min",
+            "type" : "double"
+          }, {
+            "symbol" : "row_number",
+            "type" : "bigint"
+          }, {
+            "symbol" : "partkey_4",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name",
+            "type" : "varchar(55)"
+          }, {
+            "symbol" : "mfgr",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "brand",
+            "type" : "varchar(10)"
+          }, {
+            "symbol" : "type",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "size",
+            "type" : "integer"
+          }, {
+            "symbol" : "container",
+            "type" : "varchar(10)"
+          }, {
+            "symbol" : "retailprice",
+            "type" : "double"
+          }, {
+            "symbol" : "comment",
+            "type" : "varchar(23)"
+          }, {
+            "symbol" : "row_number_0",
+            "type" : "bigint"
+          }, {
+            "symbol" : "suppkey_5",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_1",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "address",
+            "type" : "varchar(40)"
+          }, {
+            "symbol" : "nationkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "phone",
+            "type" : "varchar(15)"
+          }, {
+            "symbol" : "acctbal",
+            "type" : "double"
+          }, {
+            "symbol" : "comment_2",
+            "type" : "varchar(101)"
+          }, {
+            "symbol" : "row_number_3",
+            "type" : "bigint"
+          }, {
+            "symbol" : "availqty",
+            "type" : "integer"
+          }, {
+            "symbol" : "supplycost",
+            "type" : "double"
+          }, {
+            "symbol" : "comment_6",
+            "type" : "varchar(199)"
+          }, {
+            "symbol" : "row_number_7",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_9",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "regionkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "comment_10",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "row_number_11",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_13",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "comment_14",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "unique",
+            "type" : "bigint"
+          }, {
+            "symbol" : "min_42",
+            "type" : "double"
+          } ],
+          "details" : [ "Distribution: REPLICATED" ],
+          "estimates" : [ {
+            "outputRowCount" : "NaN",
+            "outputSizeInBytes" : "NaN",
+            "cpuCost" : "NaN",
+            "memoryCost" : 9.0,
+            "networkCost" : 0.0
+          } ],
+          "children" : [ {
+            "id" : "401",
+            "name" : "RightJoin",
+            "descriptor" : {
+              "criteria" : "(\"partkey_16\" = \"partkey_4\") AND (\"suppkey_17\" = \"suppkey_5\") AND (\"nationkey_30\" = \"nationkey\")",
+              "hash" : "[$hashvalue, $hashvalue_50]",
+              "distribution" : "PARTITIONED"
+            },
+            "outputs" : [ {
+              "symbol" : "min",
+              "type" : "double"
+            }, {
+              "symbol" : "row_number_3",
+              "type" : "bigint"
+            }, {
+              "symbol" : "availqty",
+              "type" : "integer"
+            }, {
+              "symbol" : "supplycost",
+              "type" : "double"
+            }, {
+              "symbol" : "comment_6",
+              "type" : "varchar(199)"
+            }, {
+              "symbol" : "row_number",
+              "type" : "bigint"
+            }, {
+              "symbol" : "partkey_4",
+              "type" : "bigint"
+            }, {
+              "symbol" : "name",
+              "type" : "varchar(55)"
+            }, {
+              "symbol" : "mfgr",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "brand",
+              "type" : "varchar(10)"
+            }, {
+              "symbol" : "type",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "size",
+              "type" : "integer"
+            }, {
+              "symbol" : "container",
+              "type" : "varchar(10)"
+            }, {
+              "symbol" : "retailprice",
+              "type" : "double"
+            }, {
+              "symbol" : "comment",
+              "type" : "varchar(23)"
+            }, {
+              "symbol" : "suppkey_5",
+              "type" : "bigint"
+            }, {
+              "symbol" : "row_number_0",
+              "type" : "bigint"
+            }, {
+              "symbol" : "name_1",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "address",
+              "type" : "varchar(40)"
+            }, {
+              "symbol" : "nationkey",
+              "type" : "bigint"
+            }, {
+              "symbol" : "phone",
+              "type" : "varchar(15)"
+            }, {
+              "symbol" : "acctbal",
+              "type" : "double"
+            }, {
+              "symbol" : "comment_2",
+              "type" : "varchar(101)"
+            }, {
+              "symbol" : "row_number_7",
+              "type" : "bigint"
+            }, {
+              "symbol" : "name_9",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "regionkey",
+              "type" : "bigint"
+            }, {
+              "symbol" : "comment_10",
+              "type" : "varchar(152)"
+            }, {
+              "symbol" : "row_number_11",
+              "type" : "bigint"
+            }, {
+              "symbol" : "name_13",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "comment_14",
+              "type" : "varchar(152)"
+            }, {
+              "symbol" : "unique",
+              "type" : "bigint"
+            } ],
+            "details" : [ "Distribution: PARTITIONED", "dynamicFilterAssignments = {partkey_4 -> #df_2006, suppkey_5 -> #df_2007, nationkey -> #df_2008}" ],
+            "estimates" : [ {
+              "outputRowCount" : "NaN",
+              "outputSizeInBytes" : "NaN",
+              "cpuCost" : "NaN",
+              "memoryCost" : 18911.6424,
+              "networkCost" : 0.0
+            } ],
+            "children" : [ {
+              "id" : "20",
+              "name" : "Aggregate",
+              "descriptor" : {
+                "type" : "FINAL",
+                "keys" : "[partkey_16, suppkey_17, nationkey_30]",
+                "hash" : "[$hashvalue]"
+              },
+              "outputs" : [ {
+                "symbol" : "partkey_16",
+                "type" : "bigint"
+              }, {
+                "symbol" : "suppkey_17",
+                "type" : "bigint"
+              }, {
+                "symbol" : "nationkey_30",
+                "type" : "bigint"
+              }, {
+                "symbol" : "$hashvalue",
+                "type" : "bigint"
+              }, {
+                "symbol" : "min",
+                "type" : "double"
+              } ],
+              "details" : [ "min := min(\"min_43\")" ],
+              "estimates" : [ {
+                "outputRowCount" : "NaN",
+                "outputSizeInBytes" : "NaN",
+                "cpuCost" : "NaN",
+                "memoryCost" : "NaN",
+                "networkCost" : 0.0
+              } ],
+              "children" : [ {
+                "id" : "2474",
+                "name" : "LocalExchange",
+                "descriptor" : {
+                  "partitioning" : "HASH",
+                  "isReplicateNullsAndAny" : "",
+                  "hashColumn" : "[$hashvalue]",
+                  "arguments" : "[\"partkey_16\", \"suppkey_17\", \"nationkey_30\"]"
+                },
+                "outputs" : [ {
+                  "symbol" : "partkey_16",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "suppkey_17",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "nationkey_30",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "min_43",
+                  "type" : "double"
+                }, {
+                  "symbol" : "$hashvalue",
+                  "type" : "bigint"
+                } ],
+                "details" : [ ],
+                "estimates" : [ {
+                  "outputRowCount" : "NaN",
+                  "outputSizeInBytes" : "NaN",
+                  "cpuCost" : "NaN",
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                } ],
+                "children" : [ {
+                  "id" : "2480",
+                  "name" : "RemoteSource",
+                  "descriptor" : {
+                    "sourceFragmentIds" : "[2]"
+                  },
+                  "outputs" : [ {
+                    "symbol" : "partkey_16",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "suppkey_17",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "nationkey_30",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "min_43",
+                    "type" : "double"
+                  }, {
+                    "symbol" : "$hashvalue_44",
+                    "type" : "bigint"
+                  } ],
+                  "details" : [ ],
+                  "estimates" : [ ],
+                  "children" : [ ]
+                } ]
+              } ]
+            }, {
+              "id" : "2333",
+              "name" : "LocalExchange",
+              "descriptor" : {
+                "partitioning" : "HASH",
+                "isReplicateNullsAndAny" : "",
+                "hashColumn" : "[$hashvalue_50]",
+                "arguments" : "[\"partkey_4\", \"suppkey_5\", \"nationkey\"]"
+              },
+              "outputs" : [ {
+                "symbol" : "row_number_3",
+                "type" : "bigint"
+              }, {
+                "symbol" : "availqty",
+                "type" : "integer"
+              }, {
+                "symbol" : "supplycost",
+                "type" : "double"
+              }, {
+                "symbol" : "comment_6",
+                "type" : "varchar(199)"
+              }, {
+                "symbol" : "row_number",
+                "type" : "bigint"
+              }, {
+                "symbol" : "partkey_4",
+                "type" : "bigint"
+              }, {
+                "symbol" : "name",
+                "type" : "varchar(55)"
+              }, {
+                "symbol" : "mfgr",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "brand",
+                "type" : "varchar(10)"
+              }, {
+                "symbol" : "type",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "size",
+                "type" : "integer"
+              }, {
+                "symbol" : "container",
+                "type" : "varchar(10)"
+              }, {
+                "symbol" : "retailprice",
+                "type" : "double"
+              }, {
+                "symbol" : "comment",
+                "type" : "varchar(23)"
+              }, {
+                "symbol" : "suppkey_5",
+                "type" : "bigint"
+              }, {
+                "symbol" : "row_number_0",
+                "type" : "bigint"
+              }, {
+                "symbol" : "name_1",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "address",
+                "type" : "varchar(40)"
+              }, {
+                "symbol" : "nationkey",
+                "type" : "bigint"
+              }, {
+                "symbol" : "phone",
+                "type" : "varchar(15)"
+              }, {
+                "symbol" : "acctbal",
+                "type" : "double"
+              }, {
+                "symbol" : "comment_2",
+                "type" : "varchar(101)"
+              }, {
+                "symbol" : "row_number_7",
+                "type" : "bigint"
+              }, {
+                "symbol" : "name_9",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "regionkey",
+                "type" : "bigint"
+              }, {
+                "symbol" : "comment_10",
+                "type" : "varchar(152)"
+              }, {
+                "symbol" : "row_number_11",
+                "type" : "bigint"
+              }, {
+                "symbol" : "name_13",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "comment_14",
+                "type" : "varchar(152)"
+              }, {
+                "symbol" : "unique",
+                "type" : "bigint"
+              }, {
+                "symbol" : "$hashvalue_50",
+                "type" : "bigint"
+              } ],
+              "details" : [ ],
+              "estimates" : [ {
+                "outputRowCount" : 28.8,
+                "outputSizeInBytes" : 18911.6424,
+                "cpuCost" : 18911.6424,
+                "memoryCost" : 0.0,
+                "networkCost" : 0.0
+              } ],
+              "children" : [ {
+                "id" : "400",
+                "name" : "AssignUniqueId",
+                "descriptor" : { },
+                "outputs" : [ {
+                  "symbol" : "row_number_3",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "availqty",
+                  "type" : "integer"
+                }, {
+                  "symbol" : "supplycost",
+                  "type" : "double"
+                }, {
+                  "symbol" : "comment_6",
+                  "type" : "varchar(199)"
+                }, {
+                  "symbol" : "row_number",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "partkey_4",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "name",
+                  "type" : "varchar(55)"
+                }, {
+                  "symbol" : "mfgr",
+                  "type" : "varchar(25)"
+                }, {
+                  "symbol" : "brand",
+                  "type" : "varchar(10)"
+                }, {
+                  "symbol" : "type",
+                  "type" : "varchar(25)"
+                }, {
+                  "symbol" : "size",
+                  "type" : "integer"
+                }, {
+                  "symbol" : "container",
+                  "type" : "varchar(10)"
+                }, {
+                  "symbol" : "retailprice",
+                  "type" : "double"
+                }, {
+                  "symbol" : "comment",
+                  "type" : "varchar(23)"
+                }, {
+                  "symbol" : "suppkey_5",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "row_number_0",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "name_1",
+                  "type" : "varchar(25)"
+                }, {
+                  "symbol" : "address",
+                  "type" : "varchar(40)"
+                }, {
+                  "symbol" : "nationkey",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "phone",
+                  "type" : "varchar(15)"
+                }, {
+                  "symbol" : "acctbal",
+                  "type" : "double"
+                }, {
+                  "symbol" : "comment_2",
+                  "type" : "varchar(101)"
+                }, {
+                  "symbol" : "row_number_7",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "name_9",
+                  "type" : "varchar(25)"
+                }, {
+                  "symbol" : "regionkey",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "comment_10",
+                  "type" : "varchar(152)"
+                }, {
+                  "symbol" : "row_number_11",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "name_13",
+                  "type" : "varchar(25)"
+                }, {
+                  "symbol" : "comment_14",
+                  "type" : "varchar(152)"
+                }, {
+                  "symbol" : "$hashvalue_51",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "unique",
+                  "type" : "bigint"
+                } ],
+                "details" : [ ],
+                "estimates" : [ {
+                  "outputRowCount" : 28.8,
+                  "outputSizeInBytes" : 18911.6424,
+                  "cpuCost" : 259.2,
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                } ],
+                "children" : [ {
+                  "id" : "1815",
+                  "name" : "RemoteSource",
+                  "descriptor" : {
+                    "sourceFragmentIds" : "[6]"
+                  },
+                  "outputs" : [ {
+                    "symbol" : "row_number_3",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "availqty",
+                    "type" : "integer"
+                  }, {
+                    "symbol" : "supplycost",
+                    "type" : "double"
+                  }, {
+                    "symbol" : "comment_6",
+                    "type" : "varchar(199)"
+                  }, {
+                    "symbol" : "row_number",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "partkey_4",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "name",
+                    "type" : "varchar(55)"
+                  }, {
+                    "symbol" : "mfgr",
+                    "type" : "varchar(25)"
+                  }, {
+                    "symbol" : "brand",
+                    "type" : "varchar(10)"
+                  }, {
+                    "symbol" : "type",
+                    "type" : "varchar(25)"
+                  }, {
+                    "symbol" : "size",
+                    "type" : "integer"
+                  }, {
+                    "symbol" : "container",
+                    "type" : "varchar(10)"
+                  }, {
+                    "symbol" : "retailprice",
+                    "type" : "double"
+                  }, {
+                    "symbol" : "comment",
+                    "type" : "varchar(23)"
+                  }, {
+                    "symbol" : "suppkey_5",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "row_number_0",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "name_1",
+                    "type" : "varchar(25)"
+                  }, {
+                    "symbol" : "address",
+                    "type" : "varchar(40)"
+                  }, {
+                    "symbol" : "nationkey",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "phone",
+                    "type" : "varchar(15)"
+                  }, {
+                    "symbol" : "acctbal",
+                    "type" : "double"
+                  }, {
+                    "symbol" : "comment_2",
+                    "type" : "varchar(101)"
+                  }, {
+                    "symbol" : "row_number_7",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "name_9",
+                    "type" : "varchar(25)"
+                  }, {
+                    "symbol" : "regionkey",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "comment_10",
+                    "type" : "varchar(152)"
+                  }, {
+                    "symbol" : "row_number_11",
+                    "type" : "bigint"
+                  }, {
+                    "symbol" : "name_13",
+                    "type" : "varchar(25)"
+                  }, {
+                    "symbol" : "comment_14",
+                    "type" : "varchar(152)"
+                  }, {
+                    "symbol" : "$hashvalue_51",
+                    "type" : "bigint"
+                  } ],
+                  "details" : [ ],
+                  "estimates" : [ ],
+                  "children" : [ ]
+                } ]
+              } ]
+            } ]
+          }, {
+            "id" : "2334",
+            "name" : "LocalExchange",
+            "descriptor" : {
+              "partitioning" : "SINGLE",
+              "isReplicateNullsAndAny" : "",
+              "hashColumn" : "[]",
+              "arguments" : "[]"
+            },
+            "outputs" : [ {
+              "symbol" : "min_42",
+              "type" : "double"
+            } ],
+            "details" : [ ],
+            "estimates" : [ {
+              "outputRowCount" : 1.0,
+              "outputSizeInBytes" : 9.0,
+              "cpuCost" : 0.0,
+              "memoryCost" : 0.0,
+              "networkCost" : 0.0
+            } ],
+            "children" : [ {
+              "id" : "1816",
+              "name" : "RemoteSource",
+              "descriptor" : {
+                "sourceFragmentIds" : "[11]"
+              },
+              "outputs" : [ {
+                "symbol" : "min_42",
+                "type" : "double"
+              } ],
+              "details" : [ ],
+              "estimates" : [ ],
+              "children" : [ ]
+            } ]
+          } ]
+        } ]
+      } ]
+    } ]
+  },
+  "2" : {
+    "id" : "2478",
+    "name" : "Aggregate",
+    "descriptor" : {
+      "type" : "PARTIAL",
+      "keys" : "[partkey_16, suppkey_17, nationkey_30]",
+      "hash" : "[$hashvalue_49]"
+    },
+    "outputs" : [ {
+      "symbol" : "partkey_16",
+      "type" : "bigint"
+    }, {
+      "symbol" : "suppkey_17",
+      "type" : "bigint"
+    }, {
+      "symbol" : "nationkey_30",
+      "type" : "bigint"
+    }, {
+      "symbol" : "$hashvalue_49",
+      "type" : "bigint"
+    }, {
+      "symbol" : "min_43",
+      "type" : "double"
+    } ],
+    "details" : [ "min_43 := min(\"supplycost_19\") (mask = non_null)" ],
+    "estimates" : [ ],
+    "children" : [ {
+      "id" : "513",
+      "name" : "Project",
+      "descriptor" : { },
+      "outputs" : [ {
+        "symbol" : "non_null",
+        "type" : "boolean"
+      }, {
+        "symbol" : "nationkey_30",
+        "type" : "bigint"
+      }, {
+        "symbol" : "suppkey_17",
+        "type" : "bigint"
+      }, {
+        "symbol" : "supplycost_19",
+        "type" : "double"
+      }, {
+        "symbol" : "partkey_16",
+        "type" : "bigint"
+      }, {
+        "symbol" : "$hashvalue_49",
+        "type" : "bigint"
+      } ],
+      "details" : [ "non_null := true", "$hashvalue_49 := combine_hash(combine_hash(combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"partkey_16\"), 0)), COALESCE(\"$operator$hash_code\"(\"suppkey_17\"), 0)), COALESCE(\"$operator$hash_code\"(\"nationkey_30\"), 0))" ],
+      "estimates" : [ {
+        "outputRowCount" : 4000000.0,
+        "outputSizeInBytes" : 1.88E8,
+        "cpuCost" : 1.88E8,
+        "memoryCost" : 0.0,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ {
+        "id" : "15",
+        "name" : "InnerJoin",
+        "descriptor" : {
+          "criteria" : "(\"regionkey_32\" = \"regionkey_35\")",
+          "hash" : "[$hashvalue_45, $hashvalue_46]",
+          "distribution" : "REPLICATED"
+        },
+        "outputs" : [ {
+          "symbol" : "partkey_16",
+          "type" : "bigint"
+        }, {
+          "symbol" : "suppkey_17",
+          "type" : "bigint"
+        }, {
+          "symbol" : "supplycost_19",
+          "type" : "double"
+        }, {
+          "symbol" : "nationkey_30",
+          "type" : "bigint"
+        } ],
+        "details" : [ "Distribution: REPLICATED", "dynamicFilterAssignments = {regionkey_35 -> #df_2009}" ],
+        "estimates" : [ {
+          "outputRowCount" : 4000000.0,
+          "outputSizeInBytes" : 1.44E8,
+          "cpuCost" : 1.224000018E9,
+          "memoryCost" : 18.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "2614",
+          "name" : "Project",
+          "descriptor" : { },
+          "outputs" : [ {
+            "symbol" : "partkey_16",
+            "type" : "bigint"
+          }, {
+            "symbol" : "suppkey_17",
+            "type" : "bigint"
+          }, {
+            "symbol" : "supplycost_19",
+            "type" : "double"
+          }, {
+            "symbol" : "nationkey_30",
+            "type" : "bigint"
+          }, {
+            "symbol" : "regionkey_32",
+            "type" : "bigint"
+          }, {
+            "symbol" : "$hashvalue_45",
+            "type" : "bigint"
+          } ],
+          "details" : [ "$hashvalue_45 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"regionkey_32\"), 0))" ],
+          "estimates" : [ {
+            "outputRowCount" : 2.0E7,
+            "outputSizeInBytes" : 1.08E9,
+            "cpuCost" : 1.08E9,
+            "memoryCost" : 0.0,
+            "networkCost" : 0.0
+          } ],
+          "children" : [ {
+            "id" : "13",
+            "name" : "CrossJoin",
+            "descriptor" : { },
+            "outputs" : [ {
+              "symbol" : "partkey_16",
+              "type" : "bigint"
+            }, {
+              "symbol" : "suppkey_17",
+              "type" : "bigint"
+            }, {
+              "symbol" : "supplycost_19",
+              "type" : "double"
+            }, {
+              "symbol" : "nationkey_30",
+              "type" : "bigint"
+            }, {
+              "symbol" : "regionkey_32",
+              "type" : "bigint"
+            } ],
+            "details" : [ "Distribution: REPLICATED" ],
+            "estimates" : [ {
+              "outputRowCount" : 2.0E7,
+              "outputSizeInBytes" : 9.0E8,
+              "cpuCost" : 9.2160045E8,
+              "memoryCost" : 450.0,
+              "networkCost" : 0.0
+            } ],
+            "children" : [ {
+              "id" : "11",
+              "name" : "CrossJoin",
+              "descriptor" : { },
+              "outputs" : [ {
+                "symbol" : "partkey_16",
+                "type" : "bigint"
+              }, {
+                "symbol" : "suppkey_17",
+                "type" : "bigint"
+              }, {
+                "symbol" : "supplycost_19",
+                "type" : "double"
+              } ],
+              "details" : [ "Distribution: REPLICATED" ],
+              "estimates" : [ {
+                "outputRowCount" : 800000.0,
+                "outputSizeInBytes" : 2.16E7,
+                "cpuCost" : 2.1816E7,
+                "memoryCost" : 0.0,
+                "networkCost" : 0.0
+              } ],
+              "children" : [ {
+                "id" : "2011",
+                "name" : "ScanFilterProject",
+                "descriptor" : {
+                  "table" : "tpch:tiny:partsupp",
+                  "filterPredicate" : "",
+                  "dynamicFilters" : "{\"partkey_16\" = #df_2006, \"suppkey_17\" = #df_2007}"
+                },
+                "outputs" : [ {
+                  "symbol" : "partkey_16",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "suppkey_17",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "supplycost_19",
+                  "type" : "double"
+                } ],
+                "details" : [ "row_number_15 := tpch:row_number", "availqty_18 := tpch:availqty", "suppkey_17 := tpch:suppkey", "comment_20 := tpch:comment", "supplycost_19 := tpch:supplycost", "partkey_16 := tpch:partkey" ],
+                "estimates" : [ {
+                  "outputRowCount" : 8000.0,
+                  "outputSizeInBytes" : 216000.0,
+                  "cpuCost" : 1360530.0,
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                }, {
+                  "outputRowCount" : 8000.0,
+                  "outputSizeInBytes" : 216000.0,
+                  "cpuCost" : 1360530.0,
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                }, {
+                  "outputRowCount" : 8000.0,
+                  "outputSizeInBytes" : 216000.0,
+                  "cpuCost" : 216000.0,
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                } ],
+                "children" : [ ]
+              }, {
+                "id" : "2325",
+                "name" : "LocalExchange",
+                "descriptor" : {
+                  "partitioning" : "SINGLE",
+                  "isReplicateNullsAndAny" : "",
+                  "hashColumn" : "[]",
+                  "arguments" : "[]"
+                },
+                "outputs" : [ ],
+                "details" : [ ],
+                "estimates" : [ {
+                  "outputRowCount" : 100.0,
+                  "outputSizeInBytes" : 0.0,
+                  "cpuCost" : 0.0,
+                  "memoryCost" : 0.0,
+                  "networkCost" : 0.0
+                } ],
+                "children" : [ {
+                  "id" : "1807",
+                  "name" : "RemoteSource",
+                  "descriptor" : {
+                    "sourceFragmentIds" : "[3]"
+                  },
+                  "outputs" : [ ],
+                  "details" : [ ],
+                  "estimates" : [ ],
+                  "children" : [ ]
+                } ]
+              } ]
+            }, {
+              "id" : "2326",
+              "name" : "LocalExchange",
+              "descriptor" : {
+                "partitioning" : "SINGLE",
+                "isReplicateNullsAndAny" : "",
+                "hashColumn" : "[]",
+                "arguments" : "[]"
+              },
+              "outputs" : [ {
+                "symbol" : "nationkey_30",
+                "type" : "bigint"
+              }, {
+                "symbol" : "regionkey_32",
+                "type" : "bigint"
+              } ],
+              "details" : [ ],
+              "estimates" : [ {
+                "outputRowCount" : 25.0,
+                "outputSizeInBytes" : 450.0,
+                "cpuCost" : 0.0,
+                "memoryCost" : 0.0,
+                "networkCost" : 0.0
+              } ],
+              "children" : [ {
+                "id" : "1808",
+                "name" : "RemoteSource",
+                "descriptor" : {
+                  "sourceFragmentIds" : "[4]"
+                },
+                "outputs" : [ {
+                  "symbol" : "nationkey_30",
+                  "type" : "bigint"
+                }, {
+                  "symbol" : "regionkey_32",
+                  "type" : "bigint"
+                } ],
+                "details" : [ ],
+                "estimates" : [ ],
+                "children" : [ ]
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "2327",
+          "name" : "LocalExchange",
+          "descriptor" : {
+            "partitioning" : "SINGLE",
+            "isReplicateNullsAndAny" : "",
+            "hashColumn" : "[]",
+            "arguments" : "[]"
+          },
+          "outputs" : [ {
+            "symbol" : "regionkey_35",
+            "type" : "bigint"
+          }, {
+            "symbol" : "$hashvalue_46",
+            "type" : "bigint"
+          } ],
+          "details" : [ ],
+          "estimates" : [ {
+            "outputRowCount" : 1.0,
+            "outputSizeInBytes" : 18.0,
+            "cpuCost" : 0.0,
+            "memoryCost" : 0.0,
+            "networkCost" : 0.0
+          } ],
+          "children" : [ {
+            "id" : "1809",
+            "name" : "RemoteSource",
+            "descriptor" : {
+              "sourceFragmentIds" : "[5]"
+            },
+            "outputs" : [ {
+              "symbol" : "regionkey_35",
+              "type" : "bigint"
+            }, {
+              "symbol" : "$hashvalue_47",
+              "type" : "bigint"
+            } ],
+            "details" : [ ],
+            "estimates" : [ ],
+            "children" : [ ]
+          } ]
+        } ]
+      } ]
+    } ]
+  },
+  "3" : {
+    "id" : "655",
+    "name" : "ScanProject",
+    "descriptor" : {
+      "table" : "tpch:tiny:supplier"
+    },
+    "outputs" : [ ],
+    "details" : [ "comment_28 := tpch:comment", "suppkey_22 := tpch:suppkey", "address_24 := tpch:address", "phone_26 := tpch:phone", "row_number_21 := tpch:row_number", "name_23 := tpch:name", "nationkey_25 := tpch:nationkey", "acctbal_27 := tpch:acctbal" ],
+    "estimates" : [ {
+      "outputRowCount" : 100.0,
+      "outputSizeInBytes" : 0.0,
+      "cpuCost" : 17552.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 100.0,
+      "outputSizeInBytes" : 0.0,
+      "cpuCost" : 0.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ ]
+  },
+  "4" : {
+    "id" : "646",
+    "name" : "ScanFilterProject",
+    "descriptor" : {
+      "table" : "tpch:tiny:nation",
+      "filterPredicate" : "",
+      "dynamicFilters" : "{\"nationkey_30\" = #df_2008, \"regionkey_32\" = #df_2009}"
+    },
+    "outputs" : [ {
+      "symbol" : "nationkey_30",
+      "type" : "bigint"
+    }, {
+      "symbol" : "regionkey_32",
+      "type" : "bigint"
+    } ],
+    "details" : [ "name_31 := tpch:name", "regionkey_32 := tpch:regionkey", "nationkey_30 := tpch:nationkey", "comment_33 := tpch:comment", "row_number_29 := tpch:row_number" ],
+    "estimates" : [ {
+      "outputRowCount" : 25.0,
+      "outputSizeInBytes" : 450.0,
+      "cpuCost" : 2959.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 25.0,
+      "outputSizeInBytes" : 450.0,
+      "cpuCost" : 2959.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 25.0,
+      "outputSizeInBytes" : 450.0,
+      "cpuCost" : 450.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ ]
+  },
+  "5" : {
+    "id" : "635",
+    "name" : "ScanFilterProject",
+    "descriptor" : {
+      "table" : "tpch:tiny:region",
+      "filterPredicate" : "(\"name_36\" = CAST('EUROPE' AS varchar(25)))"
+    },
+    "outputs" : [ {
+      "symbol" : "regionkey_35",
+      "type" : "bigint"
+    }, {
+      "symbol" : "$hashvalue_48",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_48 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"regionkey_35\"), 0))", "comment_37 := tpch:comment", "regionkey_35 := tpch:regionkey", "row_number_34 := tpch:row_number", "name_36 := tpch:name" ],
+    "estimates" : [ {
+      "outputRowCount" : 5.0,
+      "outputSizeInBytes" : 90.0,
+      "cpuCost" : 504.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 1.0,
+      "outputSizeInBytes" : 18.0,
+      "cpuCost" : 504.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 1.0,
+      "outputSizeInBytes" : 18.0,
+      "cpuCost" : 18.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ ]
+  },
+  "6" : {
+    "id" : "2623",
+    "name" : "Project",
+    "descriptor" : { },
+    "outputs" : [ {
+      "symbol" : "row_number_3",
+      "type" : "bigint"
+    }, {
+      "symbol" : "partkey_4",
+      "type" : "bigint"
+    }, {
+      "symbol" : "suppkey_5",
+      "type" : "bigint"
+    }, {
+      "symbol" : "availqty",
+      "type" : "integer"
+    }, {
+      "symbol" : "supplycost",
+      "type" : "double"
+    }, {
+      "symbol" : "comment_6",
+      "type" : "varchar(199)"
+    }, {
+      "symbol" : "row_number",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name",
+      "type" : "varchar(55)"
+    }, {
+      "symbol" : "mfgr",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "brand",
+      "type" : "varchar(10)"
+    }, {
+      "symbol" : "type",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "size",
+      "type" : "integer"
+    }, {
+      "symbol" : "container",
+      "type" : "varchar(10)"
+    }, {
+      "symbol" : "retailprice",
+      "type" : "double"
+    }, {
+      "symbol" : "comment",
+      "type" : "varchar(23)"
+    }, {
+      "symbol" : "row_number_0",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_1",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "address",
+      "type" : "varchar(40)"
+    }, {
+      "symbol" : "nationkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "phone",
+      "type" : "varchar(15)"
+    }, {
+      "symbol" : "acctbal",
+      "type" : "double"
+    }, {
+      "symbol" : "comment_2",
+      "type" : "varchar(101)"
+    }, {
+      "symbol" : "row_number_7",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_9",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "regionkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "comment_10",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "row_number_11",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_13",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "comment_14",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "$hashvalue_68",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_68 := combine_hash(combine_hash(combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"partkey_4\"), 0)), COALESCE(\"$operator$hash_code\"(\"suppkey_5\"), 0)), COALESCE(\"$operator$hash_code\"(\"nationkey\"), 0))" ],
+    "estimates" : [ {
+      "outputRowCount" : 28.8,
+      "outputSizeInBytes" : 18652.4424,
+      "cpuCost" : 18652.4424,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ {
+      "id" : "1568",
+      "name" : "InnerJoin",
+      "descriptor" : {
+        "criteria" : "(\"suppkey_5\" = \"suppkey\")",
+        "hash" : "[$hashvalue_56, $hashvalue_57]",
+        "distribution" : "REPLICATED"
+      },
+      "outputs" : [ {
+        "symbol" : "row_number_3",
+        "type" : "bigint"
+      }, {
+        "symbol" : "partkey_4",
+        "type" : "bigint"
+      }, {
+        "symbol" : "suppkey_5",
+        "type" : "bigint"
+      }, {
+        "symbol" : "availqty",
+        "type" : "integer"
+      }, {
+        "symbol" : "supplycost",
+        "type" : "double"
+      }, {
+        "symbol" : "comment_6",
+        "type" : "varchar(199)"
+      }, {
+        "symbol" : "row_number",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name",
+        "type" : "varchar(55)"
+      }, {
+        "symbol" : "mfgr",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "brand",
+        "type" : "varchar(10)"
+      }, {
+        "symbol" : "type",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "size",
+        "type" : "integer"
+      }, {
+        "symbol" : "container",
+        "type" : "varchar(10)"
+      }, {
+        "symbol" : "retailprice",
+        "type" : "double"
+      }, {
+        "symbol" : "comment",
+        "type" : "varchar(23)"
+      }, {
+        "symbol" : "row_number_0",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_1",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "address",
+        "type" : "varchar(40)"
+      }, {
+        "symbol" : "nationkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "phone",
+        "type" : "varchar(15)"
+      }, {
+        "symbol" : "acctbal",
+        "type" : "double"
+      }, {
+        "symbol" : "comment_2",
+        "type" : "varchar(101)"
+      }, {
+        "symbol" : "row_number_7",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_9",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "regionkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "comment_10",
+        "type" : "varchar(152)"
+      }, {
+        "symbol" : "row_number_11",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_13",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "comment_14",
+        "type" : "varchar(152)"
+      } ],
+      "details" : [ "Distribution: REPLICATED", "dynamicFilterAssignments = {suppkey -> #df_2020}" ],
+      "estimates" : [ {
+        "outputRowCount" : 28.8,
+        "outputSizeInBytes" : 18393.2424,
+        "cpuCost" : 66423.1344,
+        "memoryCost" : 7713.6,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ {
+        "id" : "2617",
+        "name" : "Project",
+        "descriptor" : { },
+        "outputs" : [ {
+          "symbol" : "row_number_3",
+          "type" : "bigint"
+        }, {
+          "symbol" : "partkey_4",
+          "type" : "bigint"
+        }, {
+          "symbol" : "suppkey_5",
+          "type" : "bigint"
+        }, {
+          "symbol" : "availqty",
+          "type" : "integer"
+        }, {
+          "symbol" : "supplycost",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_6",
+          "type" : "varchar(199)"
+        }, {
+          "symbol" : "row_number",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name",
+          "type" : "varchar(55)"
+        }, {
+          "symbol" : "mfgr",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "brand",
+          "type" : "varchar(10)"
+        }, {
+          "symbol" : "type",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "size",
+          "type" : "integer"
+        }, {
+          "symbol" : "container",
+          "type" : "varchar(10)"
+        }, {
+          "symbol" : "retailprice",
+          "type" : "double"
+        }, {
+          "symbol" : "comment",
+          "type" : "varchar(23)"
+        }, {
+          "symbol" : "$hashvalue_56",
+          "type" : "bigint"
+        } ],
+        "details" : [ "$hashvalue_56 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"suppkey_5\"), 0))" ],
+        "estimates" : [ {
+          "outputRowCount" : 144.0,
+          "outputSizeInBytes" : 40316.292,
+          "cpuCost" : 40316.292,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "1567",
+          "name" : "InnerJoin",
+          "descriptor" : {
+            "criteria" : "(\"partkey_4\" = \"partkey\")",
+            "hash" : "[$hashvalue_52, $hashvalue_53]",
+            "distribution" : "REPLICATED"
+          },
+          "outputs" : [ {
+            "symbol" : "row_number_3",
+            "type" : "bigint"
+          }, {
+            "symbol" : "partkey_4",
+            "type" : "bigint"
+          }, {
+            "symbol" : "suppkey_5",
+            "type" : "bigint"
+          }, {
+            "symbol" : "availqty",
+            "type" : "integer"
+          }, {
+            "symbol" : "supplycost",
+            "type" : "double"
+          }, {
+            "symbol" : "comment_6",
+            "type" : "varchar(199)"
+          }, {
+            "symbol" : "row_number",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name",
+            "type" : "varchar(55)"
+          }, {
+            "symbol" : "mfgr",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "brand",
+            "type" : "varchar(10)"
+          }, {
+            "symbol" : "type",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "size",
+            "type" : "integer"
+          }, {
+            "symbol" : "container",
+            "type" : "varchar(10)"
+          }, {
+            "symbol" : "retailprice",
+            "type" : "double"
+          }, {
+            "symbol" : "comment",
+            "type" : "varchar(23)"
+          } ],
+          "details" : [ "Distribution: REPLICATED", "dynamicFilterAssignments = {partkey -> #df_2021}" ],
+          "estimates" : [ {
+            "outputRowCount" : 144.0,
+            "outputSizeInBytes" : 39020.292,
+            "cpuCost" : 1475830.98,
+            "memoryCost" : 4280.688,
+            "networkCost" : 0.0
+          } ],
+          "children" : [ {
+            "id" : "2615",
+            "name" : "ScanFilterProject",
+            "descriptor" : {
+              "table" : "tpch:tiny:partsupp",
+              "filterPredicate" : "",
+              "dynamicFilters" : "{\"suppkey_5\" = #df_2020, \"partkey_4\" = #df_2021}"
+            },
+            "outputs" : [ {
+              "symbol" : "row_number_3",
+              "type" : "bigint"
+            }, {
+              "symbol" : "partkey_4",
+              "type" : "bigint"
+            }, {
+              "symbol" : "suppkey_5",
+              "type" : "bigint"
+            }, {
+              "symbol" : "availqty",
+              "type" : "integer"
+            }, {
+              "symbol" : "supplycost",
+              "type" : "double"
+            }, {
+              "symbol" : "comment_6",
+              "type" : "varchar(199)"
+            }, {
+              "symbol" : "$hashvalue_52",
+              "type" : "bigint"
+            } ],
+            "details" : [ "$hashvalue_52 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"partkey_4\"), 0))", "suppkey_5 := tpch:suppkey", "comment_6 := tpch:comment", "availqty := tpch:availqty", "supplycost := tpch:supplycost", "row_number_3 := tpch:row_number", "partkey_4 := tpch:partkey" ],
+            "estimates" : [ {
+              "outputRowCount" : 8000.0,
+              "outputSizeInBytes" : 1432530.0,
+              "cpuCost" : 1360530.0,
+              "memoryCost" : 0.0,
+              "networkCost" : 0.0
+            }, {
+              "outputRowCount" : 8000.0,
+              "outputSizeInBytes" : 1432530.0,
+              "cpuCost" : 1360530.0,
+              "memoryCost" : 0.0,
+              "networkCost" : 0.0
+            }, {
+              "outputRowCount" : 8000.0,
+              "outputSizeInBytes" : 1432530.0,
+              "cpuCost" : 1432530.0,
+              "memoryCost" : 0.0,
+              "networkCost" : 0.0
+            } ],
+            "children" : [ ]
+          }, {
+            "id" : "2329",
+            "name" : "LocalExchange",
+            "descriptor" : {
+              "partitioning" : "SINGLE",
+              "isReplicateNullsAndAny" : "",
+              "hashColumn" : "[]",
+              "arguments" : "[]"
+            },
+            "outputs" : [ {
+              "symbol" : "row_number",
+              "type" : "bigint"
+            }, {
+              "symbol" : "partkey",
+              "type" : "bigint"
+            }, {
+              "symbol" : "name",
+              "type" : "varchar(55)"
+            }, {
+              "symbol" : "mfgr",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "brand",
+              "type" : "varchar(10)"
+            }, {
+              "symbol" : "type",
+              "type" : "varchar(25)"
+            }, {
+              "symbol" : "size",
+              "type" : "integer"
+            }, {
+              "symbol" : "container",
+              "type" : "varchar(10)"
+            }, {
+              "symbol" : "retailprice",
+              "type" : "double"
+            }, {
+              "symbol" : "comment",
+              "type" : "varchar(23)"
+            }, {
+              "symbol" : "$hashvalue_53",
+              "type" : "bigint"
+            } ],
+            "details" : [ ],
+            "estimates" : [ {
+              "outputRowCount" : 36.0,
+              "outputSizeInBytes" : 4280.688,
+              "cpuCost" : 0.0,
+              "memoryCost" : 0.0,
+              "networkCost" : 0.0
+            } ],
+            "children" : [ {
+              "id" : "1811",
+              "name" : "RemoteSource",
+              "descriptor" : {
+                "sourceFragmentIds" : "[7]"
+              },
+              "outputs" : [ {
+                "symbol" : "row_number",
+                "type" : "bigint"
+              }, {
+                "symbol" : "partkey",
+                "type" : "bigint"
+              }, {
+                "symbol" : "name",
+                "type" : "varchar(55)"
+              }, {
+                "symbol" : "mfgr",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "brand",
+                "type" : "varchar(10)"
+              }, {
+                "symbol" : "type",
+                "type" : "varchar(25)"
+              }, {
+                "symbol" : "size",
+                "type" : "integer"
+              }, {
+                "symbol" : "container",
+                "type" : "varchar(10)"
+              }, {
+                "symbol" : "retailprice",
+                "type" : "double"
+              }, {
+                "symbol" : "comment",
+                "type" : "varchar(23)"
+              }, {
+                "symbol" : "$hashvalue_54",
+                "type" : "bigint"
+              } ],
+              "details" : [ ],
+              "estimates" : [ ],
+              "children" : [ ]
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "2332",
+        "name" : "LocalExchange",
+        "descriptor" : {
+          "partitioning" : "HASH",
+          "isReplicateNullsAndAny" : "",
+          "hashColumn" : "[$hashvalue_57]",
+          "arguments" : "[\"suppkey\"]"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number_0",
+          "type" : "bigint"
+        }, {
+          "symbol" : "suppkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_1",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "address",
+          "type" : "varchar(40)"
+        }, {
+          "symbol" : "nationkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "phone",
+          "type" : "varchar(15)"
+        }, {
+          "symbol" : "acctbal",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_2",
+          "type" : "varchar(101)"
+        }, {
+          "symbol" : "row_number_7",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_9",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "regionkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "comment_10",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "row_number_11",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_13",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "comment_14",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "$hashvalue_57",
+          "type" : "bigint"
+        } ],
+        "details" : [ ],
+        "estimates" : [ {
+          "outputRowCount" : 20.0,
+          "outputSizeInBytes" : 7713.6,
+          "cpuCost" : 7713.6,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "1814",
+          "name" : "RemoteSource",
+          "descriptor" : {
+            "sourceFragmentIds" : "[8]"
+          },
+          "outputs" : [ {
+            "symbol" : "row_number_0",
+            "type" : "bigint"
+          }, {
+            "symbol" : "suppkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_1",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "address",
+            "type" : "varchar(40)"
+          }, {
+            "symbol" : "nationkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "phone",
+            "type" : "varchar(15)"
+          }, {
+            "symbol" : "acctbal",
+            "type" : "double"
+          }, {
+            "symbol" : "comment_2",
+            "type" : "varchar(101)"
+          }, {
+            "symbol" : "row_number_7",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_9",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "regionkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "comment_10",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "row_number_11",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_13",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "comment_14",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "$hashvalue_58",
+            "type" : "bigint"
+          } ],
+          "details" : [ ],
+          "estimates" : [ ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "7" : {
+    "id" : "2616",
+    "name" : "ScanFilterProject",
+    "descriptor" : {
+      "table" : "tpch:tiny:part",
+      "filterPredicate" : "((\"size\" = 15) AND \"$like\"(\"type\", \"$literal$\"(from_base64('DgAAAFZBUklBQkxFX1dJRFRIAQAAAAEAAAALAAAAAAsAAAAGAAAAJUJSQVNTAA=='))))"
+    },
+    "outputs" : [ {
+      "symbol" : "row_number",
+      "type" : "bigint"
+    }, {
+      "symbol" : "partkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name",
+      "type" : "varchar(55)"
+    }, {
+      "symbol" : "mfgr",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "brand",
+      "type" : "varchar(10)"
+    }, {
+      "symbol" : "type",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "size",
+      "type" : "integer"
+    }, {
+      "symbol" : "container",
+      "type" : "varchar(10)"
+    }, {
+      "symbol" : "retailprice",
+      "type" : "double"
+    }, {
+      "symbol" : "comment",
+      "type" : "varchar(23)"
+    }, {
+      "symbol" : "$hashvalue_55",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_55 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"partkey\"), 0))", "partkey := tpch:partkey", "container := tpch:container", "    :: [[JUMBO BAG, WRAP PKG]]", "size := tpch:size", "mfgr := tpch:mfgr", "name := tpch:name", "retailprice := tpch:retailprice", "comment := tpch:comment", "row_number := tpch:row_number", "type := tpch:type", "    :: [[ECONOMY ANODIZED BRASS], [ECONOMY BRUSHED BRASS], [ECONOMY BURNISHED BRASS], [ECONOMY PLATED BRASS], [ECONOMY POLISHED BRASS], [LARGE ANODIZED BRASS], [LARGE BRUSHED BRASS], [LARGE BURNISHED BRASS], [LARGE PLATED BRASS], [LARGE POLISHED BRASS], [MEDIUM ANODIZED BRASS], [MEDIUM BRUSHED BRASS], [MEDIUM BURNISHED BRASS], [MEDIUM PLATED BRASS], [MEDIUM POLISHED BRASS], [PROMO ANODIZED BRASS], [PROMO BRUSHED BRASS], [PROMO BURNISHED BRASS], [PROMO PLATED BRASS], [PROMO POLISHED BRASS], [SMALL ANODIZED BRASS], [SMALL BRUSHED BRASS], [SMALL BURNISHED BRASS], [SMALL PLATED BRASS], [SMALL POLISHED BRASS], [STANDARD ANODIZED BRASS], [STANDARD BRUSHED BRASS], [STANDARD BURNISHED BRASS], [STANDARD PLATED BRASS], [STANDARD POLISHED BRASS]]", "brand := tpch:brand" ],
+    "estimates" : [ {
+      "outputRowCount" : 2000.0,
+      "outputSizeInBytes" : 237816.0,
+      "cpuCost" : 219816.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 36.0,
+      "outputSizeInBytes" : 4280.688,
+      "cpuCost" : 219816.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 36.0,
+      "outputSizeInBytes" : 4280.688,
+      "cpuCost" : 4280.688,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ ]
+  },
+  "8" : {
+    "id" : "2622",
+    "name" : "Project",
+    "descriptor" : { },
+    "outputs" : [ {
+      "symbol" : "row_number_0",
+      "type" : "bigint"
+    }, {
+      "symbol" : "suppkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_1",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "address",
+      "type" : "varchar(40)"
+    }, {
+      "symbol" : "nationkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "phone",
+      "type" : "varchar(15)"
+    }, {
+      "symbol" : "acctbal",
+      "type" : "double"
+    }, {
+      "symbol" : "comment_2",
+      "type" : "varchar(101)"
+    }, {
+      "symbol" : "row_number_7",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_9",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "regionkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "comment_10",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "row_number_11",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_13",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "comment_14",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "$hashvalue_67",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_67 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"suppkey\"), 0))" ],
+    "estimates" : [ {
+      "outputRowCount" : 20.0,
+      "outputSizeInBytes" : 7713.6,
+      "cpuCost" : 7713.6,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ {
+      "id" : "1557",
+      "name" : "InnerJoin",
+      "descriptor" : {
+        "criteria" : "(\"nationkey\" = \"nationkey_8\")",
+        "hash" : "[$hashvalue_59, $hashvalue_60]",
+        "distribution" : "REPLICATED"
+      },
+      "outputs" : [ {
+        "symbol" : "row_number_0",
+        "type" : "bigint"
+      }, {
+        "symbol" : "suppkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_1",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "address",
+        "type" : "varchar(40)"
+      }, {
+        "symbol" : "nationkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "phone",
+        "type" : "varchar(15)"
+      }, {
+        "symbol" : "acctbal",
+        "type" : "double"
+      }, {
+        "symbol" : "comment_2",
+        "type" : "varchar(101)"
+      }, {
+        "symbol" : "row_number_7",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_9",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "regionkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "comment_10",
+        "type" : "varchar(152)"
+      }, {
+        "symbol" : "row_number_11",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_13",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "comment_14",
+        "type" : "varchar(152)"
+      } ],
+      "details" : [ "Distribution: REPLICATED", "dynamicFilterAssignments = {nationkey_8 -> #df_2027}" ],
+      "estimates" : [ {
+        "outputRowCount" : 20.0,
+        "outputSizeInBytes" : 7533.6,
+        "cpuCost" : 27081.4,
+        "memoryCost" : 1095.8,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ {
+        "id" : "2618",
+        "name" : "ScanFilterProject",
+        "descriptor" : {
+          "table" : "tpch:tiny:supplier",
+          "filterPredicate" : "",
+          "dynamicFilters" : "{\"nationkey\" = #df_2027}"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number_0",
+          "type" : "bigint"
+        }, {
+          "symbol" : "suppkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_1",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "address",
+          "type" : "varchar(40)"
+        }, {
+          "symbol" : "nationkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "phone",
+          "type" : "varchar(15)"
+        }, {
+          "symbol" : "acctbal",
+          "type" : "double"
+        }, {
+          "symbol" : "comment_2",
+          "type" : "varchar(101)"
+        }, {
+          "symbol" : "$hashvalue_59",
+          "type" : "bigint"
+        } ],
+        "details" : [ "$hashvalue_59 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"nationkey\"), 0))", "nationkey := tpch:nationkey", "comment_2 := tpch:comment", "row_number_0 := tpch:row_number", "name_1 := tpch:name", "address := tpch:address", "phone := tpch:phone", "suppkey := tpch:suppkey", "acctbal := tpch:acctbal" ],
+        "estimates" : [ {
+          "outputRowCount" : 100.0,
+          "outputSizeInBytes" : 18452.0,
+          "cpuCost" : 17552.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        }, {
+          "outputRowCount" : 100.0,
+          "outputSizeInBytes" : 18452.0,
+          "cpuCost" : 17552.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        }, {
+          "outputRowCount" : 100.0,
+          "outputSizeInBytes" : 18452.0,
+          "cpuCost" : 18452.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ ]
+      }, {
+        "id" : "2331",
+        "name" : "LocalExchange",
+        "descriptor" : {
+          "partitioning" : "HASH",
+          "isReplicateNullsAndAny" : "",
+          "hashColumn" : "[$hashvalue_60]",
+          "arguments" : "[\"nationkey_8\"]"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number_7",
+          "type" : "bigint"
+        }, {
+          "symbol" : "nationkey_8",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_9",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "regionkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "comment_10",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "row_number_11",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_13",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "comment_14",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "$hashvalue_60",
+          "type" : "bigint"
+        } ],
+        "details" : [ ],
+        "estimates" : [ {
+          "outputRowCount" : 5.0,
+          "outputSizeInBytes" : 1095.8,
+          "cpuCost" : 1095.8,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "1813",
+          "name" : "RemoteSource",
+          "descriptor" : {
+            "sourceFragmentIds" : "[9]"
+          },
+          "outputs" : [ {
+            "symbol" : "row_number_7",
+            "type" : "bigint"
+          }, {
+            "symbol" : "nationkey_8",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_9",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "regionkey",
+            "type" : "bigint"
+          }, {
+            "symbol" : "comment_10",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "row_number_11",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_13",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "comment_14",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "$hashvalue_61",
+            "type" : "bigint"
+          } ],
+          "details" : [ ],
+          "estimates" : [ ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "9" : {
+    "id" : "2621",
+    "name" : "Project",
+    "descriptor" : { },
+    "outputs" : [ {
+      "symbol" : "row_number_7",
+      "type" : "bigint"
+    }, {
+      "symbol" : "nationkey_8",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_9",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "regionkey",
+      "type" : "bigint"
+    }, {
+      "symbol" : "comment_10",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "row_number_11",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_13",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "comment_14",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "$hashvalue_66",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_66 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"nationkey_8\"), 0))" ],
+    "estimates" : [ {
+      "outputRowCount" : 5.0,
+      "outputSizeInBytes" : 1095.8,
+      "cpuCost" : 1095.8,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ {
+      "id" : "1556",
+      "name" : "InnerJoin",
+      "descriptor" : {
+        "criteria" : "(\"regionkey\" = \"regionkey_12\")",
+        "hash" : "[$hashvalue_62, $hashvalue_63]",
+        "distribution" : "REPLICATED"
+      },
+      "outputs" : [ {
+        "symbol" : "row_number_7",
+        "type" : "bigint"
+      }, {
+        "symbol" : "nationkey_8",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_9",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "regionkey",
+        "type" : "bigint"
+      }, {
+        "symbol" : "comment_10",
+        "type" : "varchar(152)"
+      }, {
+        "symbol" : "row_number_11",
+        "type" : "bigint"
+      }, {
+        "symbol" : "name_13",
+        "type" : "varchar(25)"
+      }, {
+        "symbol" : "comment_14",
+        "type" : "varchar(152)"
+      } ],
+      "details" : [ "Distribution: REPLICATED", "dynamicFilterAssignments = {regionkey_12 -> #df_2029}" ],
+      "estimates" : [ {
+        "outputRowCount" : 5.0,
+        "outputSizeInBytes" : 1050.8,
+        "cpuCost" : 4344.6,
+        "memoryCost" : 109.8,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ {
+        "id" : "2619",
+        "name" : "ScanFilterProject",
+        "descriptor" : {
+          "table" : "tpch:tiny:nation",
+          "filterPredicate" : "",
+          "dynamicFilters" : "{\"regionkey\" = #df_2029}"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number_7",
+          "type" : "bigint"
+        }, {
+          "symbol" : "nationkey_8",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_9",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "regionkey",
+          "type" : "bigint"
+        }, {
+          "symbol" : "comment_10",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "$hashvalue_62",
+          "type" : "bigint"
+        } ],
+        "details" : [ "$hashvalue_62 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"regionkey\"), 0))", "nationkey_8 := tpch:nationkey", "regionkey := tpch:regionkey", "comment_10 := tpch:comment", "name_9 := tpch:name", "row_number_7 := tpch:row_number" ],
+        "estimates" : [ {
+          "outputRowCount" : 25.0,
+          "outputSizeInBytes" : 3184.0,
+          "cpuCost" : 2959.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        }, {
+          "outputRowCount" : 25.0,
+          "outputSizeInBytes" : 3184.0,
+          "cpuCost" : 2959.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        }, {
+          "outputRowCount" : 25.0,
+          "outputSizeInBytes" : 3184.0,
+          "cpuCost" : 3184.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ ]
+      }, {
+        "id" : "2330",
+        "name" : "LocalExchange",
+        "descriptor" : {
+          "partitioning" : "SINGLE",
+          "isReplicateNullsAndAny" : "",
+          "hashColumn" : "[]",
+          "arguments" : "[]"
+        },
+        "outputs" : [ {
+          "symbol" : "row_number_11",
+          "type" : "bigint"
+        }, {
+          "symbol" : "regionkey_12",
+          "type" : "bigint"
+        }, {
+          "symbol" : "name_13",
+          "type" : "varchar(25)"
+        }, {
+          "symbol" : "comment_14",
+          "type" : "varchar(152)"
+        }, {
+          "symbol" : "$hashvalue_63",
+          "type" : "bigint"
+        } ],
+        "details" : [ ],
+        "estimates" : [ {
+          "outputRowCount" : 1.0,
+          "outputSizeInBytes" : 109.8,
+          "cpuCost" : 0.0,
+          "memoryCost" : 0.0,
+          "networkCost" : 0.0
+        } ],
+        "children" : [ {
+          "id" : "1812",
+          "name" : "RemoteSource",
+          "descriptor" : {
+            "sourceFragmentIds" : "[10]"
+          },
+          "outputs" : [ {
+            "symbol" : "row_number_11",
+            "type" : "bigint"
+          }, {
+            "symbol" : "regionkey_12",
+            "type" : "bigint"
+          }, {
+            "symbol" : "name_13",
+            "type" : "varchar(25)"
+          }, {
+            "symbol" : "comment_14",
+            "type" : "varchar(152)"
+          }, {
+            "symbol" : "$hashvalue_64",
+            "type" : "bigint"
+          } ],
+          "details" : [ ],
+          "estimates" : [ ],
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "10" : {
+    "id" : "2620",
+    "name" : "ScanFilterProject",
+    "descriptor" : {
+      "table" : "tpch:tiny:region",
+      "filterPredicate" : "(\"name_13\" = CAST('EUROPE' AS varchar(25)))"
+    },
+    "outputs" : [ {
+      "symbol" : "row_number_11",
+      "type" : "bigint"
+    }, {
+      "symbol" : "regionkey_12",
+      "type" : "bigint"
+    }, {
+      "symbol" : "name_13",
+      "type" : "varchar(25)"
+    }, {
+      "symbol" : "comment_14",
+      "type" : "varchar(152)"
+    }, {
+      "symbol" : "$hashvalue_65",
+      "type" : "bigint"
+    } ],
+    "details" : [ "$hashvalue_65 := combine_hash(bigint '0', COALESCE(\"$operator$hash_code\"(\"regionkey_12\"), 0))", "name_13 := tpch:name", "comment_14 := tpch:comment", "row_number_11 := tpch:row_number", "regionkey_12 := tpch:regionkey" ],
+    "estimates" : [ {
+      "outputRowCount" : 5.0,
+      "outputSizeInBytes" : 549.0,
+      "cpuCost" : 504.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 1.0,
+      "outputSizeInBytes" : 109.8,
+      "cpuCost" : 504.0,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    }, {
+      "outputRowCount" : 1.0,
+      "outputSizeInBytes" : 109.8,
+      "cpuCost" : 109.8,
+      "memoryCost" : 0.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ ]
+  },
+  "11" : {
+    "id" : "870",
+    "name" : "Aggregate",
+    "descriptor" : {
+      "type" : "",
+      "keys" : "",
+      "hash" : "[]"
+    },
+    "outputs" : [ {
+      "symbol" : "min_42",
+      "type" : "double"
+    } ],
+    "details" : [ "min_42 := min(\"null_40\") (mask = null)" ],
+    "estimates" : [ {
+      "outputRowCount" : 1.0,
+      "outputSizeInBytes" : 9.0,
+      "cpuCost" : 2.0,
+      "memoryCost" : 9.0,
+      "networkCost" : 0.0
+    } ],
+    "children" : [ {
+      "id" : "869",
+      "name" : "Values",
+      "descriptor" : { },
+      "outputs" : [ {
+        "symbol" : "null",
+        "type" : "boolean"
+      }, {
+        "symbol" : "null_40",
+        "type" : "double"
+      } ],
+      "details" : [ "(CAST(null AS boolean), CAST(null AS double))" ],
+      "estimates" : [ {
+        "outputRowCount" : 1.0,
+        "outputSizeInBytes" : 2.0,
+        "cpuCost" : 0.0,
+        "memoryCost" : 0.0,
+        "networkCost" : 0.0
+      } ],
+      "children" : [ ]
+    } ]
+  }
+}

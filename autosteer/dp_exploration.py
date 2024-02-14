@@ -27,7 +27,7 @@ def register_query_config_and_measurement(query_path, disabled_rules, logical_pl
     return is_duplicate
 
 
-def explore_optimizer_configs(connector: connectors.connector.DBConnector, query_path):
+def explore_optimizer_configs(connector_type: connectors.connector.DBConnector, query_path):
     """Use dynamic programming to find good optimizer configs"""
     logger.info('Start exploring optimizer configs for query %s', query_path)
     sql_query = read_sql_file(query_path)
@@ -35,7 +35,8 @@ def explore_optimizer_configs(connector: connectors.connector.DBConnector, query
     hint_set_exploration = HintSetExploration(query_path)
     num_duplicate_plans = 0
     while hint_set_exploration.has_next():
-        connector.set_disabled_knobs(hint_set_exploration.next())
+        #FIXME: trino session properties 수정을 위한 connector 생성
+        connector = connector_type(hint_set_exploration.next())
         query_plan = connector.explain(sql_query)
         # Check if a new query plan is generated
         if register_query_config_and_measurement(query_path, hint_set_exploration.get_disabled_opts_rules(), query_plan, timed_result=None, initial_call=True):

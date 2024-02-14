@@ -1,0 +1,7 @@
+allow_pushdown_into_connectors
+merge_project_with_values
+optimize_hash_generation
+prune_filter_columns
+prune_project_columns
+prune_tablescan_columns
+simplify_expressions

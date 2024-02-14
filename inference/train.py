@@ -152,7 +152,6 @@ def train_tcnn(connector, bench: str, retrain: bool, create_datasets: bool):
         plt.plot(range(len(training_loss)), training_loss, label='training')
         plt.plot(range(len(test_loss)), test_loss, label='test')
         plt.savefig(f'evaluation/losses_1dropout_{DROPOUT}.pdf')
-
     else:
         x_train, y_train, x_test, y_test, training_data, test_data = _deserialize_data(data_path)
 

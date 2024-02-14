@@ -1,2 +1,14 @@
 benchmark.log
 benchmark.sqlite
+
+__pycache__
+
+# data, results
+/nn/data/*_data
+/nn/model/*_model
+/results/*.sqlite
+/evaluation/*.pdf
+/evaluation/*.csv
+
+# pyenv, venv
+/venv

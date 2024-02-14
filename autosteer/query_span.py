@@ -35,9 +35,11 @@ class HintSet:
 
 def get_query_plan(args: tuple) -> HintSet:
     connector_type, sql_query, hintset = args
-    connector = connector_type()
+
+    #FIXME: trino-python-client에서는 session_properties가 Connection 생성 이후 변경되지 않는다.
     knobs = hintset.get_all_knobs()
-    connector.set_disabled_knobs(knobs)
+    connector = connector_type(knobs)
+    
     hintset.plan = connector.explain(sql_query)
     return hintset
 
