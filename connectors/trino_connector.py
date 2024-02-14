@@ -46,7 +46,7 @@ class TrinoConnector(DBConnector):
         cur = self.connection.cursor()
         cur.execute(query)
         result = cur.fetchall()
-        return connectors.connector.DBConnector.TimedResult(result, cur.stats['elapsedTimeMillis'] * 1_000)
+        return connectors.connector.DBConnector.TimedResult(result, cur.stats['elapsedTimeMillis'] * 1_000, cur.stats['physicalInputBytes'], cur.stats['nodes'])
 
     def set_disabled_knobs(self, knobs: list) -> None:
         all_knobs = TrinoConnector.get_knobs()
@@ -83,17 +83,7 @@ class TrinoConnector(DBConnector):
     def explain(self, query) -> str:
         timed_result = self.execute('EXPLAIN (FORMAT JSON) ' + query)
         netsted_timed_result = self.convert_to_nested_childrens(json.loads(timed_result.result[0][0]))
-
-        try:
-            netsted_timed_result_str = json.dumps(netsted_timed_result)
-        except Exception as e:
-            print(e)
-            print(f'timed_result.result[0][0]: {timed_result.result[0][0]}')
-            print(f'netsted_timed_result: {netsted_timed_result}')
-            print(f'query: {query}')
-            raise Exception(e) 
-
-        return netsted_timed_result_str
+        return json.dumps(netsted_timed_result)
         # The query plan is already properly formatted as Json string
         # return timed_result.result[0][0]
 

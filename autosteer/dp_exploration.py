@@ -23,7 +23,7 @@ def register_query_config_and_measurement(query_path, disabled_rules, logical_pl
     if is_duplicate:
         logger.info('Plan is already known (according to hash)')
     if not initial_call and timed_result is not None:
-        storage.register_measurement(query_path, disabled_rules, walltime=timed_result.time_usecs, input_data_size=0, nodes=1)
+        storage.register_measurement(query_path, disabled_rules, walltime=timed_result.time_usecs, input_data_size=timed_result.input_data_size, nodes=timed_result.nodes)
     return is_duplicate
 
 

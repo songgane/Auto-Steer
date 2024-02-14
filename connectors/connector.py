@@ -10,9 +10,11 @@ class DBConnector:
     """The basic connector class for a database under test"""
 
     class TimedResult:
-        def __init__(self, result: str, time: int):
+        def __init__(self, result: str, time: int, input_date_size: int = 0, nodes: int = 1):
             self.result = result
             self.time_usecs = time
+            self.input_date_size = input_date_size
+            self.nodes = nodes
 
     def __init__(self):
         pass

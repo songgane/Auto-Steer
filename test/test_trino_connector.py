@@ -21,7 +21,7 @@ class TestTrinoConnector(unittest.TestCase):
         with open('./test/data/expected_trino_plan.txt', 'r', encoding='utf-8') as f:
             expected_plan = ''.join(f.readlines())
         actual_plan = self.connector.explain('SELECT 42')
-        self.assertEqual(actual_plan, json.loads(expected_plan))
+        self.assertEqual(actual_plan, json.dumps(json.loads(expected_plan)))
 
     def test_execution(self):
         result = self.connector.execute('SELECT 42')
