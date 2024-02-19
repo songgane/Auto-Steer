@@ -122,6 +122,9 @@ class Measurement:
         self.plan_json = json.loads(plan_json)
         self.walltime = walltime
 
+    def __str__(self) -> str:
+        return f'query_path: {self.query_path}, query_id: {self.query_id}, optimizer_config: {self.optimizer_config}, disabled_rules: {self.disabled_rules}, walltime: {self.walltime}'
+
 
 def experience(benchmark=None, training_ratio=0.8):
     """Get experience to train a neural network"""
@@ -222,6 +225,19 @@ def register_query_config(query_path, disabled_rules, query_plan: dict, plan_has
 
     return is_duplicate
 
+def register_measurement(query_path, disabled_rules, walltime, input_data_size, nodes):
+    logger.info('Serialize a new measurement for query %s and the disabled knobs [%s]', query_path, disabled_rules)
+    with _db() as conn:
+        now = datetime.now()
+        query = """
+                INSERT INTO measurements (query_optimizer_config_id, walltime, machine, time, input_data_size, num_compute_nodes)
+                SELECT id, :walltime, :host, :time, :input_data_size, :nodes FROM query_optimizer_configs 
+                WHERE query_id = (SELECT id FROM queries WHERE query_path = :query_path) AND disabled_rules = :disabled_rules 
+                """
+        conn.execute(query, walltime=walltime, host=socket.gethostname(), time=now.strftime('%m/%d/%y, %h:%m:%s'), input_data_size=input_data_size, nodes=nodes,
+                     query_path=query_path, disabled_rules=str(disabled_rules))
+
+
 
 def check_for_existing_measurements(query_path, disabled_rules):
     query = """SELECT count(*) as num_measurements
@@ -234,19 +250,6 @@ def check_for_existing_measurements(query_path, disabled_rules):
     df = get_df(query, {'query_path': query_path, 'disabled_rules': disabled_rules})
     values = df['num_measurements']
     return values[0] > 0
-
-
-def register_measurement(query_path, disabled_rules, walltime, input_data_size, nodes):
-    logger.info('Serialize a new measurement for query %s and the disabled knobs [%s]', query_path, disabled_rules)
-    with _db() as conn:
-        now = datetime.now()
-        query = """
-                INSERT INTO measurements (query_optimizer_config_id, walltime, machine, time, input_data_size, num_compute_nodes)
-                SELECT id, :walltime, :host, :time, :input_data_size, :nodes FROM query_optimizer_configs 
-                WHERE query_id = (SELECT id FROM queries WHERE query_path = :query_path) AND disabled_rules = :disabled_rules 
-                """
-        conn.execute(query, walltime=walltime, host=socket.gethostname(), time=now.strftime('%m/%d/%y, %h:%m:%s'), input_data_size=input_data_size, nodes=nodes,
-                     query_path=query_path, disabled_rules=str(disabled_rules))
 
 
 def median_runtimes():

@@ -91,6 +91,13 @@ def _evaluate_prediction(y, predictions, plans, query_path, is_training) -> Perf
 
     # evaluate performance gains with Bao
     performance_from_model = y[min_prediction_index]
+    logger.info(f'performance_from_model: {performance_from_model}')
+    logger.info(f'default_plan: {default_plan}')
+    logger.info(f'plans[min_prediction_index]: {plans[min_prediction_index]}')
+    logger.info(f'y[0]: {y[0]}')
+    # logger.info(f'plans: {plans}')
+    # logger.info(f'y: {y}')
+    # logger.info(f'predictions: {predictions}')
     logger.info('best choice -> %s', str(y[0] / default_plan.walltime))
 
     if performance_from_model < default_plan.walltime:
@@ -152,6 +159,8 @@ def train_tcnn(connector, bench: str, retrain: bool, create_datasets: bool):
         plt.plot(range(len(training_loss)), training_loss, label='training')
         plt.plot(range(len(test_loss)), test_loss, label='test')
         plt.savefig(f'evaluation/losses_1dropout_{DROPOUT}.pdf')
+        logger.info('training_loss: %s', training_loss)
+        logger.info('test_loss: %s', test_loss)
     else:
         x_train, y_train, x_test, y_test, training_data, test_data = _deserialize_data(data_path)
 

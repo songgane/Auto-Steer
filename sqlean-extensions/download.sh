@@ -11,5 +11,5 @@ VERSION=0.21.10
 echo "Download sqlean extensions for arch=${ARCH}"
 rm -f sqlean-${ARCH}.zip
 wget https://github.com/nalgeon/sqlean/releases/download/${VERSION}/sqlean-${ARCH}.zip
-unzip -p sqlean-${ARCH}.zip stats.dylib > stats.so.dylib
+unzip -p sqlean-${ARCH}.zip stats.dylib > stats.so
 rm -f sqlean-${ARCH}.zip

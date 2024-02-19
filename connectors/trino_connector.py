@@ -111,5 +111,5 @@ class TrinoConnector(DBConnector):
     @staticmethod
     def get_knobs() -> list:
         """Static method returning all knobs defined for this connector"""
-        with open(os.path.dirname(__file__) + '/../knobs/trino_top_7.txt', 'r', encoding='utf-8') as f:
+        with open(os.path.dirname(__file__) + '/../knobs/trino_top_8.txt', 'r', encoding='utf-8') as f:
             return [line.replace('\n', '') for line in f.readlines()]

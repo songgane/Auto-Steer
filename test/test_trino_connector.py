@@ -41,7 +41,7 @@ class TestTrinoConnector(unittest.TestCase):
         self.assertTrue(all(self.connector.get_knob(knob) for knob in knobs))
 
     def test_num_knobs(self):
-        self.assertEqual(len(TrinoConnector.get_knobs()), 7)
+        self.assertEqual(len(TrinoConnector.get_knobs()), 8)
 
     def test_preprocessor(self):
         preprocessor = TrinoConnector.get_plan_preprocessor()

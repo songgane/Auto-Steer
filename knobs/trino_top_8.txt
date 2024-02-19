@@ -1,0 +1,8 @@
+optimize_hash_generation
+prune_filter_columns
+prune_project_columns
+prune_tablescan_columns
+simplify_expressions
+merge_project_with_values
+colocated_join
+dictionary_aggregation

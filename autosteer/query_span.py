@@ -58,7 +58,7 @@ def approximate_query_span(connector_type, sql_query: str, get_json_query_plan, 
         results = np.array(list(thread_pool.map(get_json_query_plan, args)))
 
         default_plan_hash = hash(str(default_plan.plan))
-        logger.info('Default plan hash: #%s', default_plan_hash)
+        #FIXME: some rules for correctness assume that other rules are on or off and now when you disable some rule earlier in the pipeline suddenly this rule in the middle actually creates an invalid query.
         failed_plan_hash = hash(FAILED)
         logger.info('Failed query hash: #%s', failed_plan_hash)
 
